@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HMS - Funcionarios</title>
+    <link rel="shortcut icon" href="../static/imagens/soft_forge_logo" type="image/x-icon">
+</head>
+<body>
+    <h1>Funcionários</h1>
+    
+    <form method="POST">
+        <label for="filtro_cargo">Filtrar por cargo:</label>
+        <select name="filtro_cargo" id="filtro_cargo">
+            <option value="">Todos</option>
+            <option value="gerente">Gerente</option>
+            <option value="atendente">Atendente</option>
+            <option value="funcionario">Funcionário</option>
+        </select>
+        
+        <label for="termo_pesquisa">Pesquisar por nome ou email:</label>
+        <input type="text" name="termo_pesquisa" id="termo_pesquisa">
+        <button type="submit">Pesquisar</button>
+    </form>
+
+    <table border="1">
+        <tr>
+            <td>Usuário</td>
+            <td>Email</td>
+            <td>Cargo</td>
+        </tr>
+
+        {% for usuario in usuarios %}
+        <tr>
+            <td>{{ usuario.username }}</td>
+            <td>{{ usuario.email }}</td>
+            <td>{{ usuario.cargo }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <a href="telaHome">Voltar</a>
+</body>
+</html>

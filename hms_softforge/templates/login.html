@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block titulo %} HMS - Softforge {% endblock %}</title>
-<link rel="stylesheet" href="../static/css/style.css">
+    <link rel="shortcut icon" href="../static/imagens/soft_forge_logo" type="image/x-icon">
+    <link rel="stylesheet" href="../static/css/style.css">
 </head>
 
 {% block body %}
@@ -29,6 +30,12 @@
                         {{form.email.label(class="focus-input-form")}}
                         {{form.email(class="form-input")}}
                     </div>
+                    
+                    {% if form.email.errors %}
+                        {% for erro in form.email.errors %}
+                            <span style="color: red">{{erro}}</span>
+                        {% endfor %}
+                    {% endif %}
 
                     <br>
 
@@ -36,6 +43,13 @@
                         {{form.senha.label(class="focus-input-form")}}
                         {{form.senha(class="form-input")}}
                     </div>
+
+                    {% if form.senha.errors %}
+                        {% for erro in form.senha.errors %}
+                            <span style="color: red">{{erro}}</span>
+                        {% endfor %}
+                    {% endif %}
+
                     <br>
 
                     <div class="container-form-buttom">
